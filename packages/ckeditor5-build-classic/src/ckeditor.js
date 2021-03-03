@@ -16,7 +16,6 @@ import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote";
 import CKFinder from "@ckeditor/ckeditor5-ckfinder/src/ckfinder";
 import EasyImage from "@ckeditor/ckeditor5-easy-image/src/easyimage";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading";
-import InsertImage from "./insertImage";
 import Image from "@ckeditor/ckeditor5-image/src/image";
 import ImageCaption from "@ckeditor/ckeditor5-image/src/imagecaption";
 import ImageStyle from "@ckeditor/ckeditor5-image/src/imagestyle";
@@ -30,6 +29,10 @@ import PasteFromOffice from "@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from "@ckeditor/ckeditor5-table/src/table";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
 import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation";
+
+//! Custom plugins
+import InsertImage from "./plugins/insertImage";
+import InsertText from "./plugins/insertText";
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -46,7 +49,6 @@ ClassicEditor.builtinPlugins = [
 	CKFinder,
 	EasyImage,
 	Heading,
-	InsertImage,
 	Image,
 	ImageCaption,
 	ImageStyle,
@@ -60,6 +62,8 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
+	InsertImage,
+	InsertText,
 ];
 
 // Editor configuration.
@@ -83,6 +87,7 @@ ClassicEditor.defaultConfig = {
 			"insertTable",
 			"mediaEmbed",
 			"insertImage",
+			"insertText",
 			"undo",
 			"redo",
 		],
