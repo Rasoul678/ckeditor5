@@ -6,7 +6,7 @@
     "wysiwyg",
     "rich text",
     "editor",
-    "ckeditor5  balloon block"
+    "ckeditor5 balloon block"
   ],
   "main": "./build/ckeditor.js",
   "files": [

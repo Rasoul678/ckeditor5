@@ -1,72 +1,50 @@
-CKEditor 5 balloon block editor build
-==============================================
-
-[![npm version](https://badge.fury.io/js/%40ckeditor%2Fckeditor5-build-balloon-block.svg)](https://www.npmjs.com/package/@ckeditor/ckeditor5-build-balloon-block)
-[![Dependency Status](https://david-dm.org/ckeditor/ckeditor5-build-balloon-block/status.svg)](https://david-dm.org/ckeditor/ckeditor5-build-balloon-block)
-[![devDependency Status](https://david-dm.org/ckeditor/ckeditor5-build-balloon-block/dev-status.svg)](https://david-dm.org/ckeditor/ckeditor5-build-balloon-block?type=dev)
-
-The build of CKEditor 5 featuring the balloon and block toolbars. Read more about the [balloon block editor build](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#balloon-block-editor) and see the [demo](https://ckeditor.com/docs/ckeditor5/latest/examples/builds/balloon-block-editor.html).
-
-![CKEditor 5 balloon block editor build screenshot](https://c.cksource.com/a/1/img/npm/ckeditor5-build-balloon-block.png)
-
-## Documentation
-
-See:
-
-* [Installation](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/installation.html) for how to install this package and what it contains.
-* [Basic API](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/basic-api.html) for how to create an editor and interact with it.
-* [Configuration](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html) for how to configure the editor.
-* [Creating custom builds](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html) for how to customize the build (configure and rebuild the editor bundle).
+# CKEditor 5 custom balloon block editor build
 
 ## Quick start
 
 First, install the build from npm:
 
 ```bash
-npm install --save @ckeditor/ckeditor5-build-balloon-block
+npm install --save @rasoul678/ckeditor5-custom-balloon-block
 ```
 
-And use it in your website:
-
-```html
-<div id="editor">
-	<p>This is the editor content.</p>
-</div>
-<script src="./node_modules/@ckeditor/ckeditor5-build-balloon-block/build/ckeditor.js"></script>
-<script>
-	BalloonEditor
-		.create( document.querySelector( '#editor' ) )
-		.then( editor => {
-			window.editor = editor;
-		} )
-		.catch( error => {
-			console.error( 'There was a problem initializing the editor.', error );
-		} );
-</script>
-```
-
-Or in your JavaScript application:
+And use it in your react app:
 
 ```js
-import BalloonEditor from '@ckeditor/ckeditor5-build-balloon-block';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import BalloonBlockEditor from "@rasoul678/ckeditor5-custom-balloon-block";
 
-// Or using the CommonJS version:
-// const BalloonEditor = require( '@ckeditor/ckeditor5-build-balloon-block' );
+const TestView = () => {
+	const [data, setData] = useState("<p>Hello from CKEditor 5!</p>");
 
-BalloonEditor
-	.create( document.querySelector( '#editor' ) )
-	.then( editor => {
-		window.editor = editor;
-	} )
-	.catch( error => {
-		console.error( 'There was a problem initializing the editor.', error );
-	} );
+	useEffect(() => {
+		console.log(data);
+	}, [data]);
+
+	return (
+		<div>
+			<h2>Using CKEditor 5 build in React</h2>
+			<CKEditor
+				editor={BalloonBlockEditor}
+				data={data}
+				onReady={(editor) => {
+					console.log("Editor is ready to use!", editor);
+				}}
+				onChange={(event, editor) => {
+					const data = editor.getData();
+					setData(data);
+					console.log({ event, editor, data });
+				}}
+				onBlur={(event, editor) => {
+					console.log("Blur.", editor);
+				}}
+				onFocus={(event, editor) => {
+					console.log("Focus.", editor);
+				}}
+			/>
+		</div>
+	);
+};
+
+export default TestView;
 ```
-
-**Note:** If you are planning to integrate CKEditor 5 deep into your application, it is actually more convenient and recommended to install and import the source modules directly (like it happens in `ckeditor.js`). Read more in the [Advanced setup guide](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/advanced-setup.html).
-
-**Note:** You can configure the block toolbar items using the [`config.blockToolbar`](https://ckeditor.com/docs/ckeditor5/latest/api/module_core_editor_editorconfig-EditorConfig.html#member-blockToolbar) option.
-
-## License
-
-Licensed under the terms of [GNU General Public License Version 2 or later](http://www.gnu.org/licenses/gpl.html). For full details about the license, please check the `LICENSE.md` file or [https://ckeditor.com/legal/ckeditor-oss-license](https://ckeditor.com/legal/ckeditor-oss-license).
