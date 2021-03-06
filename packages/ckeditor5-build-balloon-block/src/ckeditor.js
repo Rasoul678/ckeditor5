@@ -57,6 +57,9 @@ import {
 } from "./plugins/mention/MentionCustom";
 import MentionLinks from "./plugins/mention/MentionLinks";
 
+const IFRAME_SRC = "//cdn.iframe.ly/api/iframe";
+const API_KEY = "835a12cb9d39ae0af644e0";
+
 export default class BalloonEditor extends BalloonEditorBase {}
 
 // Plugins to include in the build.
@@ -146,9 +149,37 @@ BalloonEditor.defaultConfig = {
 				marker: "@",
 				feed: getFeedItems,
 				itemRenderer: customItemRenderer,
-				minimumCharacters: 3,
 			},
 		],
+	},
+	mediaEmbed: {
+		extraProviders: [
+			{
+				name: "aparatProvider",
+				url: /^aparat\.com\/v\/(\w+)/,
+				html: (match) => {
+					const url = match[0];
+
+					const iframeUrl =
+						IFRAME_SRC +
+						"?app=1&api_key=" +
+						API_KEY +
+						"&url=" +
+						encodeURIComponent(url);
+
+					return (
+						'<div class="iframely-embed">' +
+						'<div class="iframely-responsive">' +
+						`<iframe src="${iframeUrl}" ` +
+						'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>' +
+						"</iframe>" +
+						"</div>" +
+						"</div>"
+					);
+				},
+			},
+		],
+		previewsInData: true,
 	},
 	toolbar: {
 		items: ["bold", "italic", "link"],
