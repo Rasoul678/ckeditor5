@@ -51,12 +51,12 @@ import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
 import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation";
 
 import "../theme/theme.css";
-import {
-	getFeedItems,
-	customItemRenderer,
-} from "./plugins/mention/MentionCustom";
+// import {
+// 	getFeedItems,
+// 	customItemRenderer,
+// } from "./plugins/mention/MentionCustom";
 import MentionLinks from "./plugins/mention/MentionLinks";
-import { aparatProvider } from "./plugins/mediaEmbed/Providers";
+// import { aparatProvider } from "./plugins/mediaEmbed/Providers";
 
 export default class BalloonEditor extends BalloonEditorBase {}
 
@@ -109,76 +109,76 @@ BalloonEditor.builtinPlugins = [
 	TextTransformation,
 ];
 
-// Editor configuration.
-BalloonEditor.defaultConfig = {
-	blockToolbar: [
-		"heading",
-		"|",
-		"fontBackgroundColor",
-		"fontColor",
-		"|",
-		"horizontalLine",
-		"code",
-		"codeBlock",
-		"blockQuote",
-		"specialCharacters",
-		"|",
-		"alignment",
-		"indent",
-		"outdent",
-		"bulletedList",
-		"numberedList",
-		"removeFormat",
-		"strikethrough",
-		"underline",
-		"subscript",
-		"superscript",
-		"|",
-		"imageUpload",
-		"mediaEmbed",
-		"insertTable",
-		"|",
-		"undo",
-		"redo",
-	],
-	mention: {
-		feeds: [
-			{
-				marker: "@",
-				feed: getFeedItems,
-				itemRenderer: customItemRenderer,
-			},
-		],
-	},
-	mediaEmbed: {
-		extraProviders: [aparatProvider],
-		previewsInData: true,
-	},
-	toolbar: {
-		items: ["bold", "italic", "link"],
-	},
-	image: {
-		toolbar: [
-			"imageStyle:full",
-			"imageStyle:side",
-			"|",
-			"imageTextAlternative",
-		],
-	},
-	table: {
-		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
-	},
-	link: {
-		openInNewTab: {
-			mode: "manual",
-			label: "Open in a new tab",
-			defaultValue: true, // This option will be selected by default.
-			attributes: {
-				target: "_blank",
-				rel: "noopener noreferrer",
-			},
-		},
-	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: "en",
-};
+// //! Editor configuration.
+// BalloonEditor.defaultConfig = {
+// 	blockToolbar: [
+// 		"heading",
+// 		"|",
+// 		"fontBackgroundColor",
+// 		"fontColor",
+// 		"|",
+// 		"horizontalLine",
+// 		"code",
+// 		"codeBlock",
+// 		"blockQuote",
+// 		"specialCharacters",
+// 		"|",
+// 		"alignment",
+// 		"indent",
+// 		"outdent",
+// 		"bulletedList",
+// 		"numberedList",
+// 		"removeFormat",
+// 		"strikethrough",
+// 		"underline",
+// 		"subscript",
+// 		"superscript",
+// 		"|",
+// 		"imageUpload",
+// 		"mediaEmbed",
+// 		"insertTable",
+// 		"|",
+// 		"undo",
+// 		"redo",
+// 	],
+// 	mention: {
+// 		feeds: [
+// 			{
+// 				marker: "@",
+// 				feed: getFeedItems,
+// 				itemRenderer: customItemRenderer,
+// 			},
+// 		],
+// 	},
+// 	mediaEmbed: {
+// 		extraProviders: [aparatProvider],
+// 		previewsInData: true,
+// 	},
+// 	toolbar: {
+// 		items: ["bold", "italic", "link"],
+// 	},
+// 	image: {
+// 		toolbar: [
+// 			"imageStyle:full",
+// 			"imageStyle:side",
+// 			"|",
+// 			"imageTextAlternative",
+// 		],
+// 	},
+// 	table: {
+// 		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
+// 	},
+// 	link: {
+// 		openInNewTab: {
+// 			mode: "manual",
+// 			label: "Open in a new tab",
+// 			defaultValue: true, // This option will be selected by default.
+// 			attributes: {
+// 				target: "_blank",
+// 				rel: "noopener noreferrer",
+// 			},
+// 		},
+// 	},
+// 	// This value must be kept in sync with the language defined in webpack.config.js.
+// 	language: "en",
+// };
