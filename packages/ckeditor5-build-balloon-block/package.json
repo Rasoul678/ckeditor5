@@ -1,6 +1,6 @@
 {
-  "name": "@raaivan/ckeditor5-custom-balloon-block",
-  "version": "1.0.0",
+  "name": "@rasoul678/ckeditor5-custom-balloon-block",
+  "version": "2.0.0",
   "description": "The balloon editor build of CKEditor 5 with a block toolbar",
   "keywords": [
     "wysiwyg",

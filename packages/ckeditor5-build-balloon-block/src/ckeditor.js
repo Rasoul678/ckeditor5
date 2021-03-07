@@ -57,7 +57,7 @@ import "../theme/theme.css";
 // 	getFeedItems,
 // 	customItemRenderer,
 // } from "./plugins/mention/MentionCustom";
-import MentionLinks from "./plugins/mention/MentionLinks";
+// import MentionLinks from "./plugins/mention/MentionLinks";
 // import { aparatProvider } from "./plugins/mediaEmbed/Providers";
 
 export default class BalloonEditor extends BalloonEditorBase {}
@@ -76,7 +76,7 @@ BalloonEditor.builtinPlugins = [
 	ListStyle,
 	MediaEmbedToolbar,
 	Mention,
-	MentionLinks,
+	// MentionLinks,
 	RemoveFormat,
 	SimpleUploadAdapter,
 	SpecialCharacters,
