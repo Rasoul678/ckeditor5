@@ -10,6 +10,8 @@ import Code from "@ckeditor/ckeditor5-basic-styles/src/code";
 import CodeBlock from "@ckeditor/ckeditor5-code-block/src/codeblock";
 import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/fontbackgroundcolor";
 import FontColor from "@ckeditor/ckeditor5-font/src/fontcolor";
+import FontFamily from "@ckeditor/ckeditor5-font/src/fontfamily";
+import FontSize from "@ckeditor/ckeditor5-font/src/fontsize";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline";
 import IndentBlock from "@ckeditor/ckeditor5-indent/src/indentblock";
 import ListStyle from "@ckeditor/ckeditor5-list/src/liststyle";
@@ -67,6 +69,8 @@ BalloonEditor.builtinPlugins = [
 	CodeBlock,
 	FontBackgroundColor,
 	FontColor,
+	FontFamily,
+	FontSize,
 	HorizontalLine,
 	IndentBlock,
 	ListStyle,
